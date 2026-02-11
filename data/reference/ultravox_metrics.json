@@ -1,0 +1,112 @@
+{
+  "total_trials": 57602,
+  "by_condition": {
+    "audio_text_conflict": {
+      "n": 57602,
+      "correct": 29398,
+      "accuracy": 0.5103642234644631,
+      "followed_text": 28070,
+      "followed_audio": 29398
+    }
+  },
+  "by_language": {
+    "JA": {
+      "n": 7013,
+      "followed_audio": 3146,
+      "followed_text": 3867,
+      "other": 28,
+      "tdr": 0.5514045344360473
+    },
+    "IT": {
+      "n": 7292,
+      "followed_audio": 4369,
+      "followed_text": 2923,
+      "other": 4,
+      "tdr": 0.40085024684585846
+    },
+    "PT": {
+      "n": 7235,
+      "followed_audio": 3658,
+      "followed_text": 3577,
+      "other": 2,
+      "tdr": 0.4944022114720111
+    },
+    "ZH": {
+      "n": 7116,
+      "followed_audio": 3016,
+      "followed_text": 4100,
+      "other": 39,
+      "tdr": 0.5761663856098932
+    },
+    "FR": {
+      "n": 7405,
+      "followed_audio": 3871,
+      "followed_text": 3534,
+      "other": 8,
+      "tdr": 0.47724510465901415
+    },
+    "AR": {
+      "n": 6883,
+      "followed_audio": 3179,
+      "followed_text": 3704,
+      "other": 39,
+      "tdr": 0.5381374400697371
+    },
+    "EN": {
+      "n": 7325,
+      "followed_audio": 4452,
+      "followed_text": 2873,
+      "other": 3,
+      "tdr": 0.3922184300341297
+    },
+    "DE": {
+      "n": 7199,
+      "followed_audio": 3707,
+      "followed_text": 3492,
+      "other": 11,
+      "tdr": 0.4850673704681206
+    }
+  },
+  "by_flip_type": {
+    "adjective_swap": {
+      "n": 14187,
+      "followed_audio": 7222,
+      "followed_text": 6965,
+      "other": 13,
+      "tdr": 0.49094241206738565
+    },
+    "negation_remove": {
+      "n": 8236,
+      "followed_audio": 4693,
+      "followed_text": 3543,
+      "other": 33,
+      "tdr": 0.4301845556095192
+    },
+    "number_swap": {
+      "n": 14082,
+      "followed_audio": 7461,
+      "followed_text": 6621,
+      "other": 57,
+      "tdr": 0.4701746910950149
+    },
+    "time_swap": {
+      "n": 14537,
+      "followed_audio": 7417,
+      "followed_text": 7120,
+      "other": 20,
+      "tdr": 0.4897846873495219
+    },
+    "negation_add": {
+      "n": 6426,
+      "followed_audio": 2605,
+      "followed_text": 3821,
+      "other": 11,
+      "tdr": 0.5946156240273888
+    }
+  },
+  "tdr": 0.4884457437182432,
+  "text_only_accuracy": null,
+  "audio_only_accuracy": null,
+  "aligned_accuracy": null,
+  "tdr_text_validated": null
+}
