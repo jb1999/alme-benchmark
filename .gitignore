@@ -24,6 +24,11 @@ results/
 *.checkpoint
 *.log
 
+# TTS audio (downloaded from GitHub Release)
+data/tts_audio/
+data/stimuli_tts.jsonl
+tts_audio_*.tar.gz
+
 # OS
 .DS_Store
 Thumbs.db

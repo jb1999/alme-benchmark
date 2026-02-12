@@ -157,6 +157,62 @@ uv run python scripts/regression_test.py --results results/ultravox_metrics.json
 
 This compares TDR overall, per-language, and per-flip-type within 2 percentage points of the reference values. All checks should PASS for a correct reproduction.
 
+## TTS Resynthesis Experiment
+
+The TTS resynthesis experiment replaces natural Common Voice audio with Azure Neural TTS to test whether speaker variability affects modality arbitration.
+
+### Download TTS audio
+
+TTS audio is hosted as a GitHub Release (~7.4 GB compressed, ~11 GB extracted):
+
+```bash
+# Requires GitHub CLI (gh)
+for lang in ar de en fr it ja pt zh; do
+  gh release download tts-audio-v1 -p "tts_audio_${lang}.tar.gz" -R jb1999/alme-benchmark
+done
+
+# Extract
+mkdir -p data/tts_audio
+for f in tts_audio_*.tar.gz; do
+  tar xzf "$f" -C data/tts_audio/
+done
+```
+
+After extraction, you should have:
+
+```
+data/tts_audio/
+├── ar/
+│   ├── tts_cv__XXXXXXXXXXXX.wav
+│   └── ...
+├── de/
+│   └── ...
+└── ...    (8 language directories, 57,602 WAV files total)
+```
+
+### Prepare TTS stimuli
+
+The TTS WAV files mirror the Common Voice clip structure. To evaluate with TTS audio, create a stimuli file with remapped audio paths:
+
+```bash
+uv run python scripts/make_tts_stimuli.py \
+  --stimuli data/stimuli.jsonl \
+  --tts-audio-dir data/tts_audio \
+  --output data/stimuli_tts.jsonl
+```
+
+### Run TTS evaluation
+
+```bash
+uv run alme-eval \
+  --stimuli data/stimuli_tts.jsonl \
+  --cv-root data/tts_audio \
+  --conditions audio_only audio_text_conflict \
+  --output results/ultravox_tts.json
+```
+
+Only `audio_only` and `audio_text_conflict` conditions are needed — text-only and aligned conditions are unchanged by the audio source.
+
 ## Adding New Models
 
 1. Create `alme/models/my_model.py` implementing `ModelAdapter`

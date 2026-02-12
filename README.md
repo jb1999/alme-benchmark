@@ -75,6 +75,27 @@ uv run python scripts/regression_test.py --results results/ultravox_metrics.json
 | number_swap | 47.0% | 14,082 |
 | time_swap | 49.0% | 14,537 |
 
+## TTS Resynthesis Data
+
+Pre-synthesized Azure Neural TTS audio for all 57,602 stimuli is available as a [GitHub Release](https://github.com/jb1999/alme-benchmark/releases/tag/tts-audio-v1). This enables the TTS resynthesis experiment (replacing natural Common Voice audio with synthetic speech).
+
+Download and extract:
+
+```bash
+# Download all languages (~7.4 GB total)
+for lang in ar de en fr it ja pt zh; do
+  gh release download tts-audio-v1 -p "tts_audio_${lang}.tar.gz"
+done
+
+# Extract into data/tts_audio/
+mkdir -p data/tts_audio
+for f in tts_audio_*.tar.gz; do
+  tar xzf "$f" -C data/tts_audio/
+done
+```
+
+See [INSTRUCTIONS.md](INSTRUCTIONS.md) for detailed TTS evaluation instructions.
+
 ## Extending with New Models
 
 To add a new model, create a class that inherits from `alme.models.base.ModelAdapter`:
