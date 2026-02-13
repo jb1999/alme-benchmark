@@ -135,6 +135,21 @@ _REGISTRY = {
 }
 ```
 
+## Citation
+
+If you use ALME in your research, please cite:
+
+```bibtex
+@article{billa2026alme,
+  title={When Audio-LLMs Don't Listen: A Cross-Linguistic Study of Modality Arbitration},
+  author={Billa, Jayadev},
+  journal={arXiv preprint arXiv:2602.11488},
+  year={2026}
+}
+```
+
+Paper: [arXiv:2602.11488](https://arxiv.org/abs/2602.11488)
+
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
