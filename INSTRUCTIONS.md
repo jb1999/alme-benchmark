@@ -123,7 +123,7 @@ uv run alme-eval \
 
 ## Understanding Results
 
-### TDR (Text Dominance Rate)
+### TDR (Text Dominance Ratio)
 
 The primary metric. For each conflict trial, the model either:
 - **Follows audio** (correct): answers based on what it heard

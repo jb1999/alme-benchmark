@@ -2,7 +2,7 @@
 
 ALME evaluates how audio-LLMs handle conflicting audio and text inputs across **8 typologically diverse languages**: English, German, French, Italian, Portuguese, Arabic, Japanese, and Chinese.
 
-The core metric is **Text Dominance Rate (TDR)**: the proportion of conflict trials where the model follows the (incorrect) text over the (correct) audio signal.
+The core metric is **Text Dominance Ratio (TDR)**: the proportion of conflict trials where the model follows the (incorrect) text over the (correct) audio signal.
 
 ## Quick Start
 
