@@ -484,10 +484,15 @@ def parse_answer(response: str, choices: List[str]) -> Optional[str]:
             )
             if m:
                 raw_val = m.group(1)
-                try:
-                    raw_val = raw_val.encode('utf-8').decode('unicode_escape')
-                except (UnicodeDecodeError, UnicodeError):
-                    pass
+                # Decode unicode escapes (\u0642 → Arabic char), but only
+                # when actual \uXXXX sequences are present. Blindly applying
+                # unicode_escape to UTF-8 text mangles accented characters
+                # (e.g. "não" → "nÃ£o") causing downstream match failures.
+                if _re.search(r'\\u[0-9a-fA-F]{4}', raw_val):
+                    try:
+                        raw_val = raw_val.encode('utf-8').decode('unicode_escape')
+                    except (UnicodeDecodeError, UnicodeError):
+                        pass
                 data = {"answer": raw_val}
     if isinstance(data, dict):
         raw = data.get("answer")
